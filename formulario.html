@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Casa de Cambio</title>
+	<script>
+		function calcularCambio() {
+			var monedaOrigen = document.getElementById("monedaOrigen").value;
+			var monedaDestino = document.getElementById("monedaDestino").value;
+			var cantidad = document.getElementById("cantidad").value;
+
+			var tipoCambio = 0;
+
+			if (monedaOrigen == "dolar" && monedaDestino == "sol") {
+				tipoCambio = 4.0;
+			} else if (monedaOrigen == "sol" && monedaDestino == "dolar") {
+				tipoCambio = 0.25;
+			} else if (monedaOrigen == "dolar" && monedaDestino == "euro") {
+				tipoCambio = 0.83;
+			} else if (monedaOrigen == "euro" && monedaDestino == "dolar") {
+				tipoCambio = 1.21;
+			} else if (monedaOrigen == "sol" && monedaDestino == "euro") {
+				tipoCambio = 0.22;
+			} else if (monedaOrigen == "euro" && monedaDestino == "sol") {
+				tipoCambio = 4.54;
+			}
+
+			
+			var total = cantidad * tipoCambio;
+
+			
+			alert("Total a recibir: " + total.toFixed(2));
+		}
+	</script>
+</head>
+<body>
+	<h1>Casa de Cambio</h1>
+	<form>
+        <h2>seleccionar moneda a enviar</h2>
+		<label>Moneda a cambiar:</label>
+		<select id="monedaOrigen">
+			<option value="dolar">Dólares</option>
+			<option value="sol">Soles</option>
+			<option value="euro">Euros</option>
+		</select>
+
+		<label>Moneda a recibir:</label>
+		<select id="monedaDestino">
+			<option value="dolar">Dólares</option>
+			<option value="sol">Soles</option>
+			<option value="euro">Euros</option>
+		</select>
+
+		<label>Cantidad:</label>
+		<input type="number" id="cantidad">
+
+		<input type="button" value="Calcular" onclick="calcularCambio()">
+	</form>
+</body>
+</html>
